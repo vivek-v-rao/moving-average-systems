@@ -873,49 +873,6 @@ Saving the price data and the random seed makes it much easier to reproduce a re
 
 The narrow scope is intentional. A researcher can inspect the full path from prices to moving averages to positions to returns to selection-bias diagnostics without a large framework between the strategy definition and the reported result.
 
-## Suggested GitHub topics
-
-If publishing the repository on GitHub, relevant topics include:
-
-```text
-backtesting
-backtesting-frameworks
-algorithmic-trading
-quantitative-finance
-moving-average
-moving-average-crossover
-trading-strategies
-vectorized
-sharpe-ratio
-deflated-sharpe-ratio
-multiple-testing
-```
-
-A concise repository description is:
-
-> Fast exact grid search and backtesting of moving-average crossover strategies, with vectorized evaluation and multiple-testing-aware Sharpe diagnostics.
-
-## Development and testing
-
-A useful correctness test for changes to the accelerated path is to compare it with the scalar path on a manageable grid and verify that strategy statistics agree.
-
-Particularly important regression cases include:
-
-- one signal asset and one traded asset;
-- several signal assets;
-- several traded assets;
-- several MA-deviation thresholds;
-- nonzero transaction costs;
-- nonzero execution lag;
-- a down-state asset;
-- `--average`;
-- `--deflate`; and
-- explicit start/end dates.
-
-The accelerated implementation should be treated as an alternative evaluation engine for the **same** strategy definitions, not as an approximation to the scalar search.
-
-Contributions that preserve that principle are welcome.
-
 ## Research cautions
 
 This program is a research and backtesting tool. In particular:
