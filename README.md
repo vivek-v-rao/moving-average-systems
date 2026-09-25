@@ -508,6 +508,8 @@ When `--average` and `--deflate` are both requested, the average system is also 
 
 ## Multiple testing and `--deflate`
 
+> **Worked example:** For a line-by-line interpretation of a real 597-strategy SPY/IEF/TLT search, including `EffN-B`, `EffN-G`, `EffN-max`, `SR0`, `DSR`, `Max-p`, `Haircut`, `EB SR`, and the redundancy decomposition, see [Interpreting `--deflate` results](INTERPRETING_DEFLATION.md).
+
 A strategy search creates a statistical selection problem. Suppose a researcher tests many systems and reports the one with the highest Sharpe ratio. Even if all systems have modest or zero true performance, random sampling variation makes the maximum observed Sharpe larger as more strategies are tried.
 
 Simply counting every candidate as an independent experiment is often too conservative for a moving-average search. Nearby MA lengths are highly related, and signals generated from correlated assets can also be similar. `--deflate` therefore measures dependence directly from the realized daily return streams of the tested strategies.
