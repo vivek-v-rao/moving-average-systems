@@ -888,3 +888,14 @@ This program is a research and backtesting tool. In particular:
 - DSR, Max-p, Haircut, and EB SR are diagnostics, not guarantees of future performance.
 
 Use genuinely untouched data, rolling validation, or other out-of-sample methods when evaluating whether a strategy has persistent predictive value.
+
+## References
+
+The multiple-testing and Sharpe-ratio diagnostics in `--deflate` draw on the following literature:
+
+- Bailey, D. H., and Lopez de Prado, M. (2012/2013). [*The Sharpe Ratio Efficient Frontier*](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1821643). *The Journal of Risk*, 15(2), 3-44. This paper develops the Probabilistic Sharpe Ratio (PSR) framework used as a building block for Sharpe-ratio uncertainty calculations.
+- Bailey, D. H., and Lopez de Prado, M. (2014). [*The Deflated Sharpe Ratio: Correcting for Selection Bias, Backtest Overfitting, and Non-Normality*](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2460551). *The Journal of Portfolio Management*, 40(5), 94-107. This is the main reference for the Deflated Sharpe Ratio (DSR) and its multiple-testing adjustment.
+- Galwey, N. W. (2009). [*A new measure of the effective number of tests, a practical tool for comparing families of non-independent significance tests*](https://doi.org/10.1002/gepi.20408). *Genetic Epidemiology*, 33(7), 559-568. This is the source of the eigenvalue-based effective-test count reported as `EffN-G`.
+- Bailey, D. H., Borwein, J. M., Lopez de Prado, M., and Zhu, Q. J. (2017). [*The Probability of Backtest Overfitting*](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2326253). *The Journal of Computational Finance*, 20(4), 39-69. This provides broader background on strategy-selection bias and backtest overfitting.
+
+`EffN-max` and the empirical-Bayes `EB SR` calculation are project-specific extensions motivated by the same multiple-testing problem; they are not implementations of a single formula taken directly from one of the papers above.
